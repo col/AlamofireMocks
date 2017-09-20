@@ -11,23 +11,29 @@ import Alamofire
 
 public class MockSessionManager: SessionManagerProtocol {
     
-    public init() { }
+    let responseStore: ResponseStore
+    
+    public init(responseStore: ResponseStore = DefaultResponseStore()) {
+        self.responseStore = responseStore
+    }
     
     @discardableResult
     public func request(
-        _ url: URLConvertible,
+        _ urlConvertable: URLConvertible,
         method: HTTPMethod,
         parameters: Parameters?,
         encoding: ParameterEncoding,
         headers: HTTPHeaders?) -> DataRequestProtocol {
         
-        return MockDataRequest(url: try! url.asURL(), method: method, parameters: parameters, headers: headers)
-        
+        let url = try! urlConvertable.asURL()
+        let data = responseStore.data(for: url, withParameters: parameters)
+        return MockDataRequest(data: data)
     }
     
     public func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
-        
-        return MockDataRequest(urlRequest: try! urlRequest.asURLRequest())
+        let request = try! urlRequest.asURLRequest()
+        let data = responseStore.data(for: request)
+        return MockDataRequest(data: data)
     }
     
     // TODO: Add support for more Alamofire API's

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,11 +33,8 @@ Example</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://httpbin.org/get" borderStyle="roundedRect" placeholder="Select a service" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="khu-O1-qEh">
-                                <rect key="frame" x="38" y="166" width="300" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="ueB-fl-Ef2"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://httpbin.org/get" borderStyle="roundedRect" placeholder="Select a service" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="khu-O1-qEh">
+                                <rect key="frame" x="16" y="166" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -59,10 +56,7 @@ Example</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KAD-Qz-1Nq">
-                                <rect key="frame" x="38" y="116" width="300" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="9Vn-MF-xB7"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="116" width="343" height="29"/>
                                 <segments>
                                     <segment title="Normal"/>
                                     <segment title="Mocks"/>
@@ -89,20 +83,24 @@ Example</string>
                             <constraint firstItem="khu-O1-qEh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6ZH-yA-Ggy"/>
                             <constraint firstItem="0Ui-2n-DFz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B1r-Do-VHm"/>
                             <constraint firstItem="O4p-PQ-Cu5" firstAttribute="top" secondItem="khu-O1-qEh" secondAttribute="bottom" constant="22" id="BAi-nc-BsW"/>
+                            <constraint firstAttribute="trailing" secondItem="KAD-Qz-1Nq" secondAttribute="trailing" constant="16" id="IJF-8W-xFP"/>
+                            <constraint firstItem="KAD-Qz-1Nq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="J8n-X1-aK7"/>
                             <constraint firstAttribute="leadingMargin" secondItem="847-ZE-tWd" secondAttribute="leading" id="JOZ-Fc-nI5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="fub-63-iQU" secondAttribute="leading" id="QJO-pU-yFj"/>
                             <constraint firstItem="847-ZE-tWd" firstAttribute="top" secondItem="0Ui-2n-DFz" secondAttribute="bottom" constant="8" id="UgC-hL-Xpl"/>
+                            <constraint firstItem="khu-O1-qEh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ZYt-kX-8Wf"/>
                             <constraint firstItem="KAD-Qz-1Nq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hbg-uZ-VJZ"/>
                             <constraint firstItem="O4p-PQ-Cu5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jQ6-0r-lHE"/>
                             <constraint firstItem="KAD-Qz-1Nq" firstAttribute="top" secondItem="fub-63-iQU" secondAttribute="bottom" constant="44" id="k9C-WX-EoD"/>
                             <constraint firstItem="khu-O1-qEh" firstAttribute="top" secondItem="KAD-Qz-1Nq" secondAttribute="bottom" constant="22" id="pJd-4H-B8m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fub-63-iQU" secondAttribute="trailing" id="rxD-cr-WqV"/>
+                            <constraint firstAttribute="trailing" secondItem="khu-O1-qEh" secondAttribute="trailing" constant="16" id="wKL-Rl-YB7"/>
                             <constraint firstItem="0Ui-2n-DFz" firstAttribute="top" secondItem="O4p-PQ-Cu5" secondAttribute="bottom" constant="44" id="yTI-cu-q0p"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="requestField" destination="khu-O1-qEh" id="yM2-PY-t2d"/>
                         <outlet property="responseTextArea" destination="847-ZE-tWd" id="VPs-Tm-Kby"/>
-                        <outlet property="serviceField" destination="khu-O1-qEh" id="khz-Av-dyC"/>
                         <outlet property="sessionTypeControl" destination="KAD-Qz-1Nq" id="Qux-3O-Cns"/>
                         <outlet property="submitButton" destination="O4p-PQ-Cu5" id="zv7-hh-D2E"/>
                     </connections>

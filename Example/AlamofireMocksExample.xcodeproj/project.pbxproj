@@ -14,6 +14,8 @@
 		E589502D1F72891C00B32738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E589502C1F72891C00B32738 /* Assets.xcassets */; };
 		E58950301F72891C00B32738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E589502E1F72891C00B32738 /* LaunchScreen.storyboard */; };
 		E58950481F728E1200B32738 /* AlamofireMocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58950431F728DFF00B32738 /* AlamofireMocks.framework */; };
+		EFDDACF71F72C8F4009B9B29 /* mocks in Resources */ = {isa = PBXBuildFile; fileRef = EFDDACF61F72C8E5009B9B29 /* mocks */; };
+		EFDDACF91F72CEC1009B9B29 /* SampleRequestPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDACF81F72CEC1009B9B29 /* SampleRequestPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		E58950311F72891C00B32738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E589503D1F728DFF00B32738 /* AlamofireMocks.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireMocks.xcodeproj; path = ../AlamofireMocks.xcodeproj; sourceTree = "<group>"; };
 		E589504F1F72904100B32738 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		EFDDACF61F72C8E5009B9B29 /* mocks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mocks; sourceTree = "<group>"; };
+		EFDDACF81F72CEC1009B9B29 /* SampleRequestPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRequestPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +116,14 @@
 		E58950241F72891C00B32738 /* AlamofireMocksExample */ = {
 			isa = PBXGroup;
 			children = (
+				EFDDACF61F72C8E5009B9B29 /* mocks */,
 				E58950251F72891C00B32738 /* AppDelegate.swift */,
 				E58950271F72891C00B32738 /* ViewController.swift */,
 				E58950291F72891C00B32738 /* Main.storyboard */,
 				E589502C1F72891C00B32738 /* Assets.xcassets */,
 				E589502E1F72891C00B32738 /* LaunchScreen.storyboard */,
 				E58950311F72891C00B32738 /* Info.plist */,
+				EFDDACF81F72CEC1009B9B29 /* SampleRequestPicker.swift */,
 			);
 			path = AlamofireMocksExample;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDDACF71F72C8F4009B9B29 /* mocks in Resources */,
 				E58950301F72891C00B32738 /* LaunchScreen.storyboard in Resources */,
 				E589502D1F72891C00B32738 /* Assets.xcassets in Resources */,
 				E589502B1F72891C00B32738 /* Main.storyboard in Resources */,
@@ -295,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E58950281F72891C00B32738 /* ViewController.swift in Sources */,
+				EFDDACF91F72CEC1009B9B29 /* SampleRequestPicker.swift in Sources */,
 				E58950261F72891C00B32738 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

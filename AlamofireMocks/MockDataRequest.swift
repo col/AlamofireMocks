@@ -11,15 +11,10 @@ import Alamofire
 
 class MockDataRequest: DataRequestProtocol {
     
-    init(urlRequest: URLRequestConvertible) {
-        // TODO: Use the url request to look up the correct mock
-    }
+    let data: Data
     
-    init(url: URL,
-         method: HTTPMethod,
-         parameters: Parameters?,
-         headers: HTTPHeaders?) {
-        // TODO: Use the params to look up the correct mock
+    init(data: Data) {
+        self.data = data
     }
     
     @discardableResult
@@ -27,7 +22,6 @@ class MockDataRequest: DataRequestProtocol {
                       options: JSONSerialization.ReadingOptions,
                       completionHandler: @escaping (DataResponse<Any>) -> Void) -> Self {
         
-        let data = "{ \"key\": \"value\" }".data(using: .utf8)!
         let result = Result {
             return try JSONSerialization.jsonObject(with: data, options: options)
         }

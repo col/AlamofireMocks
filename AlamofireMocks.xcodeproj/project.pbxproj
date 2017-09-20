@@ -17,6 +17,9 @@
 		E58950121F72840B00B32738 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589500E1F72840B00B32738 /* SessionManagerProtocol.swift */; };
 		E58950151F72842900B32738 /* DataRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58950141F72842900B32738 /* DataRequestProtocol.swift */; };
 		E58950181F72850D00B32738 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58950171F72850D00B32738 /* Alamofire.framework */; };
+		EFDDACE41F72B588009B9B29 /* ResponseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDACE31F72B588009B9B29 /* ResponseStore.swift */; };
+		EFDDACE61F72B59E009B9B29 /* DefaultResponseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDACE51F72B59E009B9B29 /* DefaultResponseStore.swift */; };
+		EFDDACF51F72C166009B9B29 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDACF41F72C166009B9B29 /* Dictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		E58950141F72842900B32738 /* DataRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequestProtocol.swift; sourceTree = "<group>"; };
 		E58950171F72850D00B32738 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		E59332F3B808D579D5F8CC19 /* Pods_AlamofireMocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireMocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDDACE31F72B588009B9B29 /* ResponseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStore.swift; sourceTree = "<group>"; };
+		EFDDACE51F72B59E009B9B29 /* DefaultResponseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponseStore.swift; sourceTree = "<group>"; };
+		EFDDACF41F72C166009B9B29 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +111,11 @@
 		E5894FE31F725F1300B32738 /* AlamofireMocks */ = {
 			isa = PBXGroup;
 			children = (
+				EFDDACF31F72C159009B9B29 /* Extensions */,
 				E58950131F72841300B32738 /* Protocols */,
-				E589500B1F72840B00B32738 /* MockDataRequest.swift */,
 				E589500C1F72840B00B32738 /* MockSessionManager.swift */,
+				E589500B1F72840B00B32738 /* MockDataRequest.swift */,
+				EFDDACE51F72B59E009B9B29 /* DefaultResponseStore.swift */,
 				E5894FE41F725F1300B32738 /* AlamofireMocks.h */,
 				E5894FE51F725F1300B32738 /* Info.plist */,
 			);
@@ -128,6 +136,7 @@
 			children = (
 				E589500E1F72840B00B32738 /* SessionManagerProtocol.swift */,
 				E58950141F72842900B32738 /* DataRequestProtocol.swift */,
+				EFDDACE31F72B588009B9B29 /* ResponseStore.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -140,6 +149,14 @@
 				6EBA84DF98FFD268F32D24D9 /* Pods_AlamofireMocksTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFDDACF31F72C159009B9B29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFDDACF41F72C166009B9B29 /* Dictionary.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,8 +362,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDDACE41F72B588009B9B29 /* ResponseStore.swift in Sources */,
 				E58950121F72840B00B32738 /* SessionManagerProtocol.swift in Sources */,
+				EFDDACE61F72B59E009B9B29 /* DefaultResponseStore.swift in Sources */,
 				E58950151F72842900B32738 /* DataRequestProtocol.swift in Sources */,
+				EFDDACF51F72C166009B9B29 /* Dictionary.swift in Sources */,
 				E58950101F72840B00B32738 /* MockSessionManager.swift in Sources */,
 				E589500F1F72840B00B32738 /* MockDataRequest.swift in Sources */,
 			);

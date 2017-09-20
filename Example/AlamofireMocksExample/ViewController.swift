@@ -12,18 +12,37 @@ import AlamofireMocks
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var serviceField: UITextField!
+    @IBOutlet weak var requestField: UITextField!
     @IBOutlet weak var responseTextArea: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var sessionTypeControl: UISegmentedControl!
-
+    
+    var sampleRequestPicker: SampleRequestPicker!
+    var requestPickerView: UIPickerView!
+    var selectedRequest: SampleRequest!
+    
     let alamofireSessionManager = Alamofire.SessionManager.default
     let mockSessionManager = MockSessionManager()
-
     var selectedSessionManager: SessionManagerProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sampleRequestPicker = SampleRequestPicker(
+            requests: [
+                SampleRequest(url: "https://httpbin.org/get", method: .get, params: nil),
+                SampleRequest(url: "https://httpbin.org/post", method: .post, params: nil),
+                SampleRequest(url: "https://httpbin.org/post", method: .post, params: ["key": "apples"])
+            ],
+            delegate: self
+        )
+        
+        requestPickerView = UIPickerView()
+        requestPickerView.dataSource = sampleRequestPicker
+        requestPickerView.delegate = sampleRequestPicker
+        requestField.inputView = requestPickerView
+        didSelect(sampleRequest: sampleRequestPicker.requests.first!)
+        
         submitButton.setTitle("Loading...", for: .disabled)
         submitButton.setTitle("Submit", for: .normal)
 
@@ -42,7 +61,8 @@ class ViewController: UIViewController {
     @IBAction
     func submitClicked() {
         disableSubmitButton()
-        selectedSessionManager.request("https://httpbin.org/get").responseJSON { response in
+        selectedSessionManager.request(selectedRequest.url, method: selectedRequest.method,
+                                       parameters: selectedRequest.params).responseJSON { response in
             self.enableSubmitButton()
 
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
@@ -61,5 +81,14 @@ class ViewController: UIViewController {
     private func enableSubmitButton() {
         submitButton.isEnabled = true
         sessionTypeControl.isEnabled = true
+    }
+}
+
+extension ViewController: SampleRequestPickerDelegate {
+    
+    func didSelect(sampleRequest: SampleRequest) {
+        selectedRequest = sampleRequest
+        requestField.text = selectedRequest?.displayString()
+        requestField.resignFirstResponder()
     }
 }
