@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-protocol SessionManagerProtocol {
+public protocol SessionManagerProtocol {
     
     @discardableResult
     func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?,
@@ -19,10 +19,10 @@ protocol SessionManagerProtocol {
     
 }
 
-extension SessionManagerProtocol {
+public extension SessionManagerProtocol {
     
     @discardableResult
-    func request(
+    public func request(
         _ url: URLConvertible,
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
@@ -36,13 +36,13 @@ extension SessionManagerProtocol {
 extension SessionManager: SessionManagerProtocol {
     
     @discardableResult
-    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?,
+    public func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?,
                  encoding: ParameterEncoding, headers: HTTPHeaders?)  -> DataRequestProtocol {
         let dataRequest: DataRequest = request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
         return dataRequest as DataRequestProtocol
     }
     
-    func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
+    public func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
         let dataRequest: DataRequest = request(urlRequest)
         return dataRequest as DataRequestProtocol
     }

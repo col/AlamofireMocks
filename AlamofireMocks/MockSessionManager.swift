@@ -9,10 +9,12 @@
 import Foundation
 import Alamofire
 
-class MockSessionManager: SessionManagerProtocol {
+public class MockSessionManager: SessionManagerProtocol {
+    
+    public init() { }
     
     @discardableResult
-    func request(
+    public func request(
         _ url: URLConvertible,
         method: HTTPMethod,
         parameters: Parameters?,
@@ -23,7 +25,7 @@ class MockSessionManager: SessionManagerProtocol {
         
     }
     
-    func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
+    public func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
         
         return MockDataRequest(urlRequest: try! urlRequest.asURLRequest())
     }

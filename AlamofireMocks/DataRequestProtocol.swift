@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-protocol DataRequestProtocol {
+public protocol DataRequestProtocol {
     
     @discardableResult
     func responseJSON(queue: DispatchQueue?,
@@ -18,10 +18,10 @@ protocol DataRequestProtocol {
     
 }
 
-extension DataRequestProtocol {
+public extension DataRequestProtocol {
     
     @discardableResult
-    func responseJSON(queue: DispatchQueue? = nil,
+    public func responseJSON(queue: DispatchQueue? = nil,
                       options: JSONSerialization.ReadingOptions = .allowFragments,
                       completionHandler: @escaping (DataResponse<Any>) -> Void) -> Self {
         
