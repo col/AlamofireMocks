@@ -4,3 +4,5 @@ Frameworks
 AlamofireMocks.xcworkspace/xcuserdata
 Example/AlamofireMocksExample.xcodeproj/project.xcworkspace/xcuserdata
 Example/AlamofireMocksExample.xcodeproj/xcuserdata
+Pods
+.ruby-version

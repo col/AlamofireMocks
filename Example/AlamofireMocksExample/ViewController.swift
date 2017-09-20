@@ -16,22 +16,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var responseTextArea: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var sessionTypeControl: UISegmentedControl!
-    
-    var alamofireSessionManager: SessionManager!
-    var mockSessionManager: MockSessionManager!
-    
-    var selectedSessionManager: SessionManagerProtocol?
-    
+
+    let alamofireSessionManager = Alamofire.SessionManager.default
+    let mockSessionManager = MockSessionManager()
+
+    var selectedSessionManager: SessionManagerProtocol!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         submitButton.setTitle("Loading...", for: .disabled)
         submitButton.setTitle("Submit", for: .normal)
 
-        alamofireSessionManager = SessionManager()
-        mockSessionManager = MockSessionManager()
         selectedSessionManager = alamofireSessionManager
     }
-    
+
     @IBAction
     func sessionManagerSelectionChanged() {
         if sessionTypeControl.selectedSegmentIndex == 0 {
@@ -40,13 +38,13 @@ class ViewController: UIViewController {
             selectedSessionManager = mockSessionManager
         }
     }
-    
+
     @IBAction
     func submitClicked() {
         disableSubmitButton()
-        selectedSessionManager?.request("https://httpbin.org/get").responseJSON { response in
+        selectedSessionManager.request("https://httpbin.org/get").responseJSON { response in
             self.enableSubmitButton()
-            
+
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 self.responseTextArea.text = utf8Text
             } else {
@@ -54,12 +52,12 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+
     private func disableSubmitButton() {
         submitButton.isEnabled = false
         sessionTypeControl.isEnabled = false
     }
-    
+
     private func enableSubmitButton() {
         submitButton.isEnabled = true
         sessionTypeControl.isEnabled = true
