@@ -11,6 +11,8 @@ import Alamofire
 
 public class DefaultResponseStore: ResponseStore {
     
+    public init() {}
+    
     public func data(for request: URLRequest) -> Data {
         let path = request.url?.path ?? ""
         return mockData(forPath: path, withParameters: nil)! // TODO: handle 'mock not found' error
