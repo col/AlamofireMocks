@@ -9,16 +9,16 @@
 import Foundation
 import Alamofire
 
-class MockDataRequest: DataRequestProtocol {
+public class MockDataRequest: DataRequestProtocol {
     
     let data: Data
     
-    init(data: Data) {
+    public init(data: Data) {
         self.data = data
     }
     
     @discardableResult
-    func responseJSON(queue: DispatchQueue?,
+    public func responseJSON(queue: DispatchQueue?,
                       options: JSONSerialization.ReadingOptions,
                       completionHandler: @escaping (DataResponse<Any>) -> Void) -> Self {
         
