@@ -15,21 +15,25 @@ public class DefaultResponseStore: ResponseStore {
     
     public func data(for request: URLRequest) -> Data {
         let path = request.url?.path ?? ""
-        return mockData(forPath: path, withParameters: nil)! // TODO: handle 'mock not found' error
+        return mockData(forPath: path, withParameters: nil)
     }
     
     public func data(for url: URL, withParameters params: Parameters?) -> Data {
-        return mockData(forPath: url.path, withParameters: params)! // TODO: handle 'mock not found' error
+        return mockData(forPath: url.path, withParameters: params)
     }
     
-    private func mockData(forPath path: String, withParameters params: Parameters?) -> Data? {
+    private func mockData(forPath path: String, withParameters params: Parameters?) -> Data {
         let fileName = fileNameFromManifest(forPath: path, params: params) ?? "default.json"
         let (resource, fileExtension) = splitFileName(fileName)
         let subDir = mocksDir(forPath: path)
-        if let mockUrl = Bundle.main.url(forResource: resource, withExtension: fileExtension, subdirectory: subDir) {
-            return try? Data(contentsOf: mockUrl)
+        if let mockUrl = bundle().url(forResource: resource, withExtension: fileExtension, subdirectory: subDir) {
+            if let mockData = try? Data(contentsOf: mockUrl) {
+                return mockData
+            }
         }
-        return nil
+        let message = "Mock file not found! Path: \(path), Params: \(debugPrint(params ?? [:]))"
+        print(message)
+        return message.data(using: .utf8)!
     }
     
     private func splitFileName(_ fileName: String) -> (String, String) {
@@ -53,7 +57,7 @@ public class DefaultResponseStore: ResponseStore {
     }
     
     private func manifestFile(forPath path: String) -> [[String: Any]]? {
-        if let url = Bundle.main.url(forResource: "manifest", withExtension: "json", subdirectory: mocksDir(forPath: path)) {
+        if let url = bundle().url(forResource: "manifest", withExtension: "json", subdirectory: mocksDir(forPath: path)) {
             if let manifest = loadJSONObject(fromURL: url) as? [[String: Any]] {
                 return manifest
             }
@@ -73,5 +77,10 @@ public class DefaultResponseStore: ResponseStore {
         } catch {
             return nil
         }
+    }
+    
+    private func bundle() -> Bundle {
+        // TODO: Come up with a better way to switch bundles when running the tests
+        return Bundle(identifier: "com.colharris.AlamofireMocksTests") ?? Bundle.main
     }
 }

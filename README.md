@@ -37,4 +37,24 @@ sessionManager.request("https://httpbin.org/get").responseJSON { response in
 
 ## Configuring Mock Responses
 
-By default the ``MockSessionManager`` uses the ``DefaultResponseStore``.
+By default the ``MockSessionManager`` uses the ``DefaultResponseStore``. The ``DefaultResponseStore`` looks for mock responses in a ``mocks`` folder reference inside your application bundle.
+
+For example a GET request to ``http://example.com/test`` will look for a mock response at ``mocks/test/default.json``.
+
+### Manifest File
+
+Manifest files are used to return different responses according to the parameters in the request.
+For example if the following ``manifest.json`` file existed at ``mocks/test/manifest.json``:
+
+```
+[
+     {
+        "params": {
+            "key": "apples"
+        },
+        "file": "apples.json"
+     }
+]
+```
+
+A GET request to ``http://example.com/test?key=apples`` would look for a mock response at ``mock/test/apples.json``
