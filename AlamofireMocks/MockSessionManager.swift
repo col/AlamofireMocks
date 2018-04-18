@@ -36,5 +36,32 @@ public class MockSessionManager: SessionManagerProtocol {
         return MockDataRequest(data: data)
     }
     
+    @discardableResult
+    public func download(_ url: URLConvertible,
+                  method: HTTPMethod = .get,
+                  parameters: Parameters? = nil,
+                  encoding: ParameterEncoding = URLEncoding.default,
+                  headers: HTTPHeaders? = nil,
+                  to destination: DownloadRequest.DownloadFileDestination? = nil) -> DataRequestProtocol {
+        
+        let url = try! url.asURL()
+        let data = responseStore.data(for: url, withParameters: parameters)
+        return MockDataRequest(data: data)
+    }
+    
+    @discardableResult
+    public func download(_ urlRequest: URLRequestConvertible,
+                  to destination: DownloadRequest.DownloadFileDestination? = nil) -> DataRequestProtocol {
+        let request = try! urlRequest.asURLRequest()
+        let data = responseStore.data(for: request)
+        return MockDataRequest(data: data)
+    }
+    
+    @discardableResult
+    public func download(resumingWith resumeData: Data,
+                  to destination: DownloadRequest.DownloadFileDestination? = nil) -> DataRequestProtocol {
+        fatalError("download(resumingWith:to:) has not been implemented")
+    }
+    
     // TODO: Add support for more Alamofire API's
 }

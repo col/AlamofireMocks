@@ -61,4 +61,13 @@ public class MockDataRequest: DataRequestProtocol {
         fatalError("responsePropertyList(queue:options:completionHandler:) has not been implemented")
     }
     
+    public func cancel() {
+        fatalError("cancel() has not been implemented")
+    }
+    
+    // TODO: May need to move this to a MockDownloadRequest class
+    @discardableResult
+    public func downloadProgress(queue: DispatchQueue, closure: @escaping Request.ProgressHandler) -> Self {
+        fatalError("downloadProgress(queue: queue, closure: closure) has not been implemented")
+    }
 }

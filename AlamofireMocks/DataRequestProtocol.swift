@@ -38,6 +38,12 @@ public protocol DataRequestProtocol {
     func responsePropertyList(queue: DispatchQueue?,
                               options: PropertyListSerialization.ReadOptions,
                               completionHandler: @escaping (DataResponse<Any>) -> Void) -> Self
+    
+    func cancel()
+    
+    @discardableResult
+    func downloadProgress(queue: DispatchQueue, closure: @escaping Request.ProgressHandler) -> Self
+    
 }
 
 public extension DataRequestProtocol {
@@ -77,6 +83,10 @@ public extension DataRequestProtocol {
         return responsePropertyList(queue: queue, options: options, completionHandler: completionHandler)
     }
     
+    @discardableResult
+    func downloadProgress(queue: DispatchQueue = DispatchQueue.main, closure: @escaping Request.ProgressHandler) -> Self {
+        return downloadProgress(queue: queue, closure: closure)
+    }
 }
 
 extension DataRequest: DataRequestProtocol {
