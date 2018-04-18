@@ -18,6 +18,29 @@ public class MockDataRequest: DataRequestProtocol {
     }
     
     @discardableResult
+    public func response(queue: DispatchQueue?,
+                         completionHandler: @escaping (DefaultDataResponse) -> Void) -> Self {
+        
+        // TODO: ...
+        fatalError("response(queue:completionHandler:) has not been implemented")
+    }
+    
+    @discardableResult
+    public func responseData(queue: DispatchQueue?,
+                             completionHandler: @escaping (DataResponse<Data>) -> Void) -> Self {
+        // TODO: ...
+        fatalError("responseData(queue:completionHandler:) has not been implemented")
+    }
+    
+    @discardableResult
+    public func responseString(queue: DispatchQueue?,
+                               encoding: String.Encoding?,
+                               completionHandler: @escaping (DataResponse<String>) -> Void) -> Self {
+        // TODO: ...
+        fatalError("responseString(queue:encoding:completionHandler:) has not been implemented")
+    }
+    
+    @discardableResult
     public func responseJSON(queue: DispatchQueue?,
                       options: JSONSerialization.ReadingOptions,
                       completionHandler: @escaping (DataResponse<Any>) -> Void) -> Self {
@@ -30,5 +53,12 @@ public class MockDataRequest: DataRequestProtocol {
         return self
     }
     
-    // TODO: Add support for more response handlers
+    @discardableResult
+    public func responsePropertyList(queue: DispatchQueue?,
+                                     options: PropertyListSerialization.ReadOptions,
+                                     completionHandler: @escaping (DataResponse<Any>) -> Void) -> Self {
+        // TODO: ...
+        fatalError("responsePropertyList(queue:options:completionHandler:) has not been implemented")
+    }
+    
 }
