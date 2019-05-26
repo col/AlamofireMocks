@@ -159,7 +159,6 @@
 				E58950201F72891C00B32738 /* Resources */,
 				E589504E1F72901F00B32738 /* Embed Frameworks */,
 				7EDEA628983EF0AE95296614 /* [CP] Embed Pods Frameworks */,
-				C2A31CF63486BA6DA29F61ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +192,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -250,7 +250,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -259,7 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5C3B289331991DC27910B62 /* [CP] Check Pods Manifest.lock */ = {
@@ -278,21 +278,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C2A31CF63486BA6DA29F61ED /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -450,6 +435,7 @@
 			baseConfigurationReference = 3CEC083C021DBABEA4F81F25 /* Pods-AlamofireMocksExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -468,6 +454,7 @@
 			baseConfigurationReference = 68960EA6C128D318B484AFAD /* Pods-AlamofireMocksExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",

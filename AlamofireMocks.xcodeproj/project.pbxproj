@@ -185,7 +185,6 @@
 				E5894FDD1F725F1300B32738 /* Frameworks */,
 				E5894FDE1F725F1300B32738 /* Headers */,
 				E5894FDF1F725F1300B32738 /* Resources */,
-				C58477F3C6638CEC40141C21 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,8 +203,6 @@
 				E5894FE61F725F1300B32738 /* Sources */,
 				E5894FE71F725F1300B32738 /* Frameworks */,
 				E5894FE81F725F1300B32738 /* Resources */,
-				99DE5B7769763D8374AF5A93 /* [CP] Embed Pods Frameworks */,
-				4F43B05F96357DE7C7AFD388 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,54 +273,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4F43B05F96357DE7C7AFD388 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireMocksTests/Pods-AlamofireMocksTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		99DE5B7769763D8374AF5A93 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireMocksTests/Pods-AlamofireMocksTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireMocksTests/Pods-AlamofireMocksTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C58477F3C6638CEC40141C21 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireMocks/Pods-AlamofireMocks-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D7007E2D2570F06C6653FB90 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
